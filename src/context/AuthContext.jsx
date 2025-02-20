@@ -26,9 +26,14 @@ export const AuthProvider = ({ children }) => {
 
   // Función para iniciar sesión
   const login = async (email, password) => {
-    await account.createEmailPasswordSession(email, password);
-    const currentUser = await account.get();
-    setUser(currentUser);
+    try {
+      await account.createEmailPasswordSession(email, password);
+      const currentUser = await account.get();
+      setUser(currentUser);
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      throw error;
+    }
   };
 
   // Función para cerrar sesión
