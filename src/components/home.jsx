@@ -1,11 +1,23 @@
-import { FileUploader } from "./fileUploader";
+import { Link } from "react-router-dom";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
-      <FileUploader />
+      <h1>Bienvenido a XXI Storage</h1>
+      <p>
+        Por favor, inicia sesión o regístrate para comenzar a usar la
+        aplicación.
+      </p>
+      <div>
+        <Link to="/login">
+          <button>Iniciar Sesión</button>
+        </Link>
+        <Link to="/signup">
+          <button>Registrarse</button>
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default home;
+export default Home;
